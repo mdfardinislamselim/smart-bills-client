@@ -162,6 +162,7 @@ const MyPayBills = () => {
           : "bg-base-100 text-base-content min-h-screen"
       }
     >
+      <title>My Pay Bills | Smart Bills</title>
       <div className="py-6 container mx-auto px-4 transition-colors duration-500">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-6">
           <h2 className="text-2xl font-bold mb-3 sm:mb-0">My Pay Bills</h2>

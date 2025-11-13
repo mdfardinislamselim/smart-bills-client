@@ -25,7 +25,8 @@ const Register = () => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!passwordRegex.test(password)) {
       toast.error(
-        "Password must contain at least one uppercase, one lowercase letter, and be 6+ characters long."
+        "Password must contain at least one uppercase, one lowercase letter, and be 6+ characters long.",
+        { duration: 3000 }
       );
       return;
     }
@@ -36,7 +37,7 @@ const Register = () => {
         const user = result.user;
         updateUserProfile({ displayName: name, photoURL: photo })
           .then(() => {
-            toast.success("Account created successfully! 🎉");
+            // toast.success("Account created successfully! 🎉");
             form.reset();
             navigate("/");
           })
@@ -48,14 +49,21 @@ const Register = () => {
         let message = err.message;
         if (message.includes("auth/email-already-in-use")) {
           toast.error(
-            "This email is already registered. Please log in instead."
+            "This email is already registered. Please log in instead.",
+            { duration: 3000 }
           );
         } else if (message.includes("auth/invalid-email")) {
-          toast.error("Invalid email format. Please enter a valid address.");
+          toast.error("Invalid email format. Please enter a valid address.", {
+            duration: 3000,
+          });
         } else if (message.includes("auth/weak-password")) {
-          toast.error("Password is too weak. Try a stronger one.");
+          toast.error("Password is too weak. Try a stronger one.", {
+            duration: 3000,
+          });
         } else {
-          toast.error("Registration failed. Please try again.");
+          toast.error("Registration failed. Please try again.", {
+            duration: 3000,
+          });
         }
       });
   };
@@ -63,16 +71,19 @@ const Register = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then(() => {
-        toast.success("Logged in with Google! ✅");
+        toast.success("Logged in with Google! ✅", { duration: 3000 });
         navigate("/");
       })
       .catch(() => {
-        toast.error("Google login failed. Please try again.");
+        toast.error("Google login failed. Please try again.", {
+          duration: 3000,
+        });
       });
   };
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row justify-center items-center bg-base-200 p-5">
+      <title>Register | Smart Bills</title>
       <Toaster position="top-center" reverseOrder={false} />
 
       {/* Lottie Animation */}

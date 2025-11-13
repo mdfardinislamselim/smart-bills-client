@@ -29,6 +29,7 @@ useEffect(() => {
           : "bg-base-100 text-gray-800"
       }`}
     >
+      <title>404 | Smart Bills</title>
       {/* Lottie Animation */}
       <div className="w-100 h-100">
         <Lottie animationData={errorAnimation} loop={true} />
@@ -40,14 +41,9 @@ useEffect(() => {
         moved or deleted.
       </p>
 
-      <Link
-        to="/"
-        className="btn btn-primary btn-lg mb-4"
-      >
+      <Link to="/" className="btn btn-primary btn-lg mb-4">
         Go Back Home
       </Link>
-
-
     </div>
   );
 };

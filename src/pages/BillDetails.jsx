@@ -84,6 +84,12 @@ const BillDetails = () => {
       });
       return () => observer.disconnect();
     }, []);
+  
+  useEffect(() => {
+    if (bill) {
+      document.title = `${bill.title} | Smart Bills`;
+    }
+  }, [bill]);
 
   // Loading state
   if (loading) {
@@ -95,7 +101,8 @@ const BillDetails = () => {
   // Bill not found
   if (!bill) {
     return (
-      <div className="min-h-[80vh] flex flex-col items-center justify-center text-center bg-base-200 px-4">
+      <div className="min-h-[80vh] flex flex-col items-center justify-center text-center bg-base-200 px-4">\
+        <title>Bill Not Found | Smart Bills</title>
         <div className="w-64 h-64 mb-6">
           <Lottie animationData={notFoundAnimation} loop={true} />
         </div>
@@ -116,11 +123,13 @@ const BillDetails = () => {
     );
   }
 
+
   return (
     <div className="max-w-6xl mx-auto px-6 py-10">
       <h1 className="text-4xl font-bold text-center text-blue-600 mb-2">
         {bill.title}
       </h1>
+      {/* <title>{bill.title} | Smart Bills</title> */}
       <p className="text-center text-gray-500 mb-10">
         View your bill details and complete payment easily.
       </p>

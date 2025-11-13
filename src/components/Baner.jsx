@@ -124,8 +124,8 @@ const Banner = () => {
           ))}
         </Swiper>
       ) : (
-        <div className="text-center py-20 text-base-content/70 text-lg">
-          Loading latest bills...
+        <div className="flex justify-center flex-col items-center">
+          <span className="loading loading-dots loading-xl"></span>
         </div>
       )}
 

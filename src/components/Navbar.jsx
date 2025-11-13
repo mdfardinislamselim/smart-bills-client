@@ -5,7 +5,7 @@ import logo from "../assets/logo.png";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { loading, user, logOut } = useContext(AuthContext);
   const [theme, setTheme] = useState("light");
 
   // Load saved theme on mount
@@ -26,6 +26,14 @@ const Navbar = () => {
   const handleLogout = () => {
     logOut().catch(console.error);
   };
+
+  // if (loading) {
+  //   return (
+  //     <div className="flex justify-center items-center">
+  //       <span className="loading loading-dots loading-xl"></span>
+  //     </div>
+  //   );
+  // }
 
   // Common nav links
   const navLinks = (
@@ -131,14 +139,7 @@ const Navbar = () => {
 
           {/* Mobile Menu */}
           <div className="flex items-center gap-2 md:hidden">
-            {/* Theme Toggle (Mobile) */}
-            <button
-              onClick={toggleTheme}
-              className="btn btn-ghost btn-circle text-xl"
-            >
-              {theme === "light" ? <FaMoon /> : <FaSun />}
-            </button>
-
+            {/* Remove extra theme toggle on mobile */}
             {/* Dropdown Menu */}
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className="btn btn-ghost">

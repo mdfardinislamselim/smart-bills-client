@@ -8,7 +8,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
-  const { signInUser, googleLogin } = useContext(AuthContext);
+  const { setLoading, signInUser, googleLogin } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -28,7 +28,9 @@ const Login = () => {
         console.log("Logged in user:", result.user);
         form.reset();
         navigate(from, { replace: true });
-        toast.success("Welcome back! 🎉");
+        form.reset();
+        // toast.success("Welcome back! 🎉", { duration: 3000 });
+        setLoading(false);
       })
       .catch((err) => {
         console.error(err.message);
@@ -41,11 +43,15 @@ const Login = () => {
             "No account found with this email. Please register first."
           );
         } else if (message.includes("auth/wrong-password")) {
-          toast.error("Invalid password. Please try again.");
+          toast.error("Invalid password. Please try again.", {
+            duration: 3000,
+          });
         } else if (message.includes("auth/too-many-requests")) {
-          toast.error("Too many failed attempts. Try again later.");
+          toast.error("Too many failed attempts. Try again later.", {
+            duration: 3000,
+          });
         } else {
-          toast.error("Login failed. Please try again.");
+          toast.error("Login failed. Please try again.", { duration: 3000 });
         }
       });
   };
@@ -55,16 +61,19 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         console.log("Google User:", result.user);
-        toast.success("Logged in with Google! ✅");
+        // toast.success("Logged in with Google! ✅", { duration: 3000 });
         navigate(from, { replace: true });
       })
       .catch(() => {
-        toast.error("Google login failed. Please try again.");
+        toast.error("Google login failed. Please try again.", {
+          duration: 3000,
+        });
       });
   };
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row justify-center items-center bg-base-200 p-5">
+      <title>Login | Smart Bills</title>
       <Toaster position="top-center" reverseOrder={false} />
 
       {/* Lottie Animation */}
