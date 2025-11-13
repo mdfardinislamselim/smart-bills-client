@@ -25,7 +25,7 @@ const Login = () => {
 
     signInUser(email, password)
       .then((result) => {
-        console.log("Logged in user:", result.user);
+        // console.log("Logged in user:", result.user);
         form.reset();
         navigate(from, { replace: true });
         form.reset();
@@ -60,7 +60,7 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
-        console.log("Google User:", result.user);
+        // console.log("Google User:", result.user);
         // toast.success("Logged in with Google! ✅", { duration: 3000 });
         navigate(from, { replace: true });
       })
@@ -76,19 +76,16 @@ const Login = () => {
       <title>Login | Smart Bills</title>
       <Toaster position="top-center" reverseOrder={false} />
 
-      {/* Lottie Animation */}
       <div className="w-full lg:w-1/2 flex justify-center">
         <Lottie animationData={loginAnim} loop={true} className="w-3/4" />
       </div>
 
-      {/* Login Form */}
       <div className="w-full lg:w-1/2 max-w-md bg-base-100 rounded-2xl shadow-xl p-8">
         <h2 className="text-3xl font-bold text-center text-primary mb-6">
           Login to Your Account
         </h2>
 
         <form onSubmit={handleLogin} className="space-y-4">
-          {/* Email */}
           <div className="form-control">
             <label className="label">
               <span className="label-text font-medium">Email</span>
@@ -102,7 +99,6 @@ const Login = () => {
             />
           </div>
 
-          {/* Password */}
           <div className="form-control relative">
             <label className="label">
               <span className="label-text font-medium">Password</span>
@@ -122,13 +118,11 @@ const Login = () => {
             </span>
           </div>
 
-          {/* Submit Button */}
           <div className="form-control mt-6">
             <button className="btn btn-primary w-full">Login</button>
           </div>
         </form>
 
-        {/* Redirect to Register */}
         <p className="text-center text-sm mt-4">
           Don't have an account?{" "}
           <Link
@@ -139,7 +133,6 @@ const Login = () => {
           </Link>
         </p>
 
-        {/* Google Login */}
         <div className="divider">OR</div>
         <button
           onClick={handleGoogleLogin}

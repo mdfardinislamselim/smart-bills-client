@@ -7,23 +7,23 @@ const Footer = () => {
     <footer className="bg-base-200 text-base-content ">
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Brand / Description */}
           <div>
-            <h2 className="text-2xl font-bold flex items-center gap-2">
-              <img
-                src="/logo.png"
-                alt="Logo"
-                className="w-8 h-8 object-contain"
-              />
-              <span className="text-primary">SmartBills</span>
-            </h2>
+            <Link to={"/"}>
+              <h2 className="text-2xl font-bold flex items-center gap-2">
+                <img
+                  src="/logo.png"
+                  alt="Logo"
+                  className="w-8 h-8 object-contain"
+                />
+                <span className="text-primary">SmartBills</span>
+              </h2>
+            </Link>
             <p className="mt-4 text-sm opacity-80 leading-relaxed">
               SmartBills is your all-in-one solution to manage and pay your
               monthly utility bills easily, securely, and on time. Save time and
               stay organized!
             </p>
 
-            {/* Social Icons */}
             <div className="flex items-center gap-4 mt-5">
               <a
                 href="https://facebook.com"
@@ -60,7 +60,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Useful Links */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Useful Links</h3>
             <ul className="space-y-2 text-sm">
@@ -104,7 +103,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact / Newsletter */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Stay Updated</h3>
             <p className="text-sm mb-3 opacity-80">
@@ -125,10 +123,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="divider my-8"></div>
 
-        {/* Bottom section */}
         <div className="flex flex-col md:flex-row justify-between items-center text-sm opacity-80">
           <p>
             © {new Date().getFullYear()}{" "}

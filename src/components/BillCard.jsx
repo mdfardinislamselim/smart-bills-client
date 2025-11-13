@@ -16,10 +16,8 @@ const BillCard = ({ bill }) => {
       "
     >
       <div className="card-body space-y-2">
-        {/* Title */}
         <h3 className="text-xl font-bold text-primary">{title}</h3>
 
-        {/* Info */}
         <div className="space-y-1 text-sm text-base-content/80">
           <p>
             <span className="font-semibold text-base-content">Category:</span>{" "}
@@ -35,7 +33,6 @@ const BillCard = ({ bill }) => {
           </p>
         </div>
 
-        {/* Action */}
         <div className="card-actions justify-end mt-4">
           <Link
             to={`/bill/${_id}`}

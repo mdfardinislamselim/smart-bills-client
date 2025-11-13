@@ -86,12 +86,9 @@ const Register = () => {
       <title>Register | Smart Bills</title>
       <Toaster position="top-center" reverseOrder={false} />
 
-      {/* Lottie Animation */}
       <div className="w-full lg:w-1/2 flex justify-center">
         <Lottie animationData={registerAnim} loop={true} className="w-3/4" />
       </div>
-
-      {/* Register Form */}
       <div className="w-full lg:w-1/2 max-w-md bg-base-100 rounded-2xl shadow-xl p-8">
         <h2 className="text-3xl font-bold text-center text-primary mb-6">
           Create Your Account

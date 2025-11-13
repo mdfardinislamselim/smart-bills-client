@@ -31,24 +31,24 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  // ✅ Google login
+  // Google login
   const googleLogin = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
-  // ✅ Logout
+  // Logout
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
   };
 
-  // ✅ Update profile
+  // Update profile
   const updateUserProfile = (profile) => {
     return updateProfile(auth.currentUser, profile);
   };
 
-  // ✅ Observe user state
+  //  Observe user state
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);

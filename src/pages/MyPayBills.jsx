@@ -1,4 +1,3 @@
-// MyPayBills.jsx
 import React, { useContext, useEffect, useState } from "react";
 import instance from "../hook/useAxios";
 import { AuthContext } from "../provider/AuthProvider";
@@ -175,7 +174,6 @@ const MyPayBills = () => {
           </button>
         </div>
 
-        {/* Stats */}
         <div
           className={`stats shadow mb-6 ${
             theme === "dark"
@@ -258,7 +256,6 @@ const MyPayBills = () => {
           </div>
         )}
 
-        {/* Update Modal */}
         <dialog id="update_modal" className="modal">
           <div
             className={`modal-box ${

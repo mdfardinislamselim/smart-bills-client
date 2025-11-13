@@ -101,7 +101,6 @@ const Banner = () => {
                   </Link>
                 </div>
 
-                {/* RIGHT SECTION */}
                 <div className="flex-1 relative flex justify-center items-center">
                   <div
                     className={`absolute w-64 h-64 sm:w-80 sm:h-80 md:w-[420px] md:h-[420px] rounded-full blur-3xl opacity-40 ${
