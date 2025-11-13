@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import useAxios from "../hook/useAxios";
+import instance from "../hook/useAxios";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const MyPayBills = () => {
   const { user } = useContext(AuthContext);
-  const instance = useAxios();
+  // const instance = useAxios();
   const [bills, setBills] = useState([]);
   const [selectedBill, setSelectedBill] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -75,7 +75,7 @@ const MyPayBills = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await instance.patch(`/bills/${selectedBill._id}`, formData);
+      await instance.patch(`/paid-bills/${selectedBill._id}`, formData);
       Swal.fire("Updated!", "Bill updated successfully.", "success");
       document.getElementById("update_modal").close();
       fetchBills();
@@ -85,25 +85,25 @@ const MyPayBills = () => {
   };
 
   //Delete bill
-  const handleDelete = async (id) => {
-    const confirm = await Swal.fire({
-      title: "Are you sure?",
-      text: "This bill will be permanently deleted!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Yes, delete it!",
-    });
+const handleDelete = async (id) => {
+  const confirm = await Swal.fire({
+    title: "Are you sure?",
+    text: "This bill will be permanently deleted!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Yes, delete it!",
+  });
 
-    if (confirm.isConfirmed) {
-      try {
-        await instance.delete(`/bills/${id}`);
-        Swal.fire("Deleted!", "Bill deleted successfully.", "success");
-        fetchBills();
-      } catch {
-        Swal.fire("Error", "Failed to delete bill.", "error");
-      }
+  if (confirm.isConfirmed) {
+    try {
+      await instance.delete(`/paid-bills/${id}`);
+      Swal.fire("Deleted!", "Bill deleted successfully.", "success");
+      fetchBills();
+    } catch {
+      Swal.fire("Error", "Failed to delete bill.", "error");
     }
-  };
+  }
+};
 
   // CSV Download
   const handleDownloadReport = () => {
