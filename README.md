@@ -8,9 +8,9 @@ The application ensures a seamless, responsive, and user-friendly experience for
 
 ## 🌐 Live Demo & Repositories
 
-- 🔗 **Live Site:** [👉 https://smart-bills-manager.web.app/](#)
-- 💻 **Client Repo:** [👉 https://github.com/mdfardinislamselim/smart-bills-client](#)
-- ⚙️ **Server Repo:** [👉 https://github.com/mdfardinislamselim/smart-bills-server](#)
+- 🔗 **Live Site:** [👉 https://smart-bills-manager.web.app/](https://smart-bills-manager.web.app/)
+- 💻 **Client Repo:** [👉 https://github.com/mdfardinislamselim/smart-bills-client](https://github.com/mdfardinislamselim/smart-bills-client)
+- ⚙️ **Server Repo:** [👉 https://github.com/mdfardinislamselim/smart-bills-server](https://github.com/mdfardinislamselim/smart-bills-server)
 
 ---
 
@@ -77,3 +77,99 @@ The application ensures a seamless, responsive, and user-friendly experience for
 - MongoDB
 - dotenv, cors, bcrypt
 
+
+## 📦 Project Dependencies
+
+### Client
+
+```json
+"dependencies": {
+  "axios": "^1.6.0",
+  "firebase": "^11.0.0",
+  "react": "^18.2.0",
+  "react-dom": "^18.2.0",
+  "react-router-dom": "^6.14.1",
+  "react-toastify": "^9.2.2",
+  "sweetalert2": "^11.8.2",
+  "lottie-react": "^2.3.1",
+  "jspdf": "^2.5.1",
+  "jspdf-autotable": "^3.5.25"
+},
+"devDependencies": {
+  "vite": "^5.0.0",
+  "tailwindcss": "^3.3.2",
+  "daisyui": "^3.2.2"
+}
+```
+
+### Server
+
+```json
+"dependencies": {
+  "express": "^4.18.2",
+  "mongodb": "^6.10.0",
+  "cors": "^2.8.5",
+  "dotenv": "^16.3.1",
+  "bcrypt": "^5.1.0",
+  "firebase-admin": "^12.10.0"
+}
+```
+
+---
+
+## 🚀 Local Setup Guide
+
+### 1️⃣ Clone the Repositories
+
+```bash
+# Client
+git clone https://github.com/mdfardinislamselim/smart-bills-client.git
+
+# Server
+git clone https://github.com/mdfardinislamselim/smart-bills-server.git
+```
+
+### 2️⃣ Install Dependencies
+
+```bash
+# Client
+cd smart-bills-client
+npm install
+
+# Server
+cd smart-bills-server
+npm install
+```
+
+### 3️⃣ Environment Variables
+
+Create a `.env` file in the **server** folder:
+
+```
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+FIREBASE_SERVICE_KEY=your_base64_encoded_firebase_service_key
+```
+
+Create a `.env` file in the **client** folder (if needed):
+
+```
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+```
+
+### 4️⃣ Run the Application
+
+```bash
+# Server
+cd smart-bills-server
+npm run dev  # or "node index.js"
+
+# Client
+cd smart-bills-client
+npm run dev
+```
